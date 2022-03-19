@@ -1,8 +1,49 @@
-
-
 TO-DO
 <router-outlet></router-outlet>
 
 <footer>
     Todos os direitos reservados.
 </footer>
+
+<hr>
+<h1>Property Binding</h1>
+{{ nome }}
+<br />
+<br>Título <input type="text" value="{{ title }}" />
+<br>Título <input type="text" [value]="title" />
+<br>Título <input type="text" bind-value="title" />
+
+<hr>
+<h1> Two way Data Binding</h1>
+Titulo <input type="text" [(ngModel)]="title" /> <br>
+
+Titulo <input type="text" [ngModel]="title" /> <br>
+
+Titulo <input type="text" bindon-ngModel="title" /> <br>
+
+<hr>
+<h1> Event Binding</h1>
+
+<input type="text" onblur="alert('Morreu')" />
+
+<input #estecampo type="text" 
+    (blur)="save(estecampo.value)" 
+    (keyup.enter)="save(estecampo.value)"
+/>
+Texto do Input é: {{ texto }}
+
+<br>
+
+<span 
+   (mouseover)="onMouseSpan()"
+   (mouseout)="onMouseSpan"
+   [class.destaque="isMouseOver"]
+>
+    Passe o mouse por aqui
+</span>
+<style>
+ .destaque {
+     background-color: red;
+     font: 2em;
+ }
+</style>
